@@ -64,7 +64,7 @@ RUN { \
 # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
 	&& chmod 777 /var/run/mysqld
 	
-RUN sed -i '/\[mysqld\]/a server-id=1\nlog-bin' /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN sed -i '/\[mysqld\]/a server-id=1\nlog-bin' /etc/my.cnf.d/mysql-clients.cnf
 VOLUME /opt/mysql
 # Config files
 COPY config/ /etc/mysql/
